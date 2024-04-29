@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "start:backend": "cd backend && npm run dev",
+    "start:frontend": "cd frontend && npm run dev",
+    "start": "concurrently \"npm:start:backend\" \"npm:start:frontend\"",
+    "dev": "webpack-dev-server --config webpack.config.js",
+    "watch": "webpack --watch --config webpack.config.js"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^1.6.8",
+    "concurrently": "^8.2.2"
+  },
+  "devDependencies": {
+    "esm": "^3.2.25",
+    "supertest": "^6.3.4"
+  }
+}
