@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "start:backend": "cd backend && npm run dev",
-    "start:frontend": "cd frontend && npm run dev",
-    "start": "concurrently \"npm:start:backend\" \"npm:start:frontend\"",
+    "start:backend": "cd backend && npm update && npm run dev",
+    "start:frontend": "cd frontend && npm update && npm run dev",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "dev": "webpack-dev-server --config webpack.config.js",
     "watch": "webpack --watch --config webpack.config.js"
   },

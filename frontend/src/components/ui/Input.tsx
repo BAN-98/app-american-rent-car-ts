@@ -17,7 +17,7 @@ export const Input = ({
   className,
   register,
   name,
-  required = false,
+  required,
   containerClassName,
   label,
   placeholder,
@@ -32,10 +32,11 @@ export const Input = ({
       <label className="block text-gray-700">{label}</label>
       <input
         type={type}
-        {...(register && register(name, { required }))}
+        {...(register && register(name, { required}))}
         className={classNames(className)}
         placeholder={placeholder}
         {...rest}
+        required={required}
       />
     </div>
   );
