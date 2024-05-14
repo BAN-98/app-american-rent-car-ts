@@ -1,10 +1,10 @@
-import React, { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react";
 import { FieldValues, UseFormRegister } from "react-hook-form";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string;
   className: string;
-  register?: UseFormRegister<FieldValues>;
+  register: UseFormRegister<FieldValues>;
   name: string;
   required?: boolean;
   containerClassName?: string;
@@ -32,7 +32,7 @@ export const Input = ({
       <label className="block text-gray-700">{label}</label>
       <input
         type={type}
-        {...(register && register(name, { required}))}
+        {...register(name, { required })}
         className={classNames(className)}
         placeholder={placeholder}
         {...rest}
