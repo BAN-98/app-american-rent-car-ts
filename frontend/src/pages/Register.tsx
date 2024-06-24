@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import registerImage from "../assets/registerImage.webp";
 import RegisterForm from "../components/forms/RegisterForm";
 
+
 export const Register = () => {
   return (
     <section className="flex h-screen mx-auto items-center justify-center">

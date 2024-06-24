@@ -5,15 +5,18 @@ import Cars from "./pages/Cars";
 import Home from "./pages/Home";
 import { Register } from "./pages/Register";
 import Login from "./pages/Login";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
     <>
-      <Routes>
-        <Route index element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard/*" element={<ProtectedRoutes />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route index element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard/*" element={<ProtectedRoutes />} />
+        </Routes>
+      </AuthProvider>
     </>
   );
 }

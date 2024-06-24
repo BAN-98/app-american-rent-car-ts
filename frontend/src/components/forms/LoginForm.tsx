@@ -27,7 +27,8 @@ const LoginForm = () => {
   const registerForm: SubmitHandler<FieldValues> = async (
     data: FieldValues
   ) => {
-    await authUser(data);
+    const response = await authUser(data);
+    console.log(response);
   };
 
   const inputClass =
