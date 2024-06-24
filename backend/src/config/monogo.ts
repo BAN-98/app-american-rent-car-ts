@@ -1,24 +1,29 @@
-
-import 'dotenv/config'
+import 'dotenv/config';
 import { connect, disconnect } from 'mongoose';
+
 async function dbConnect(): Promise<string> {
-    const DB_URI = <string>process.env.DB_URI
+    const DB_URI = process.env.DB_URI || "mongodb://localhost:27017/app-american-rent-car-db";
+    if (!DB_URI) {
+        throw new Error("DB_URI is not defined in the ENV variables");
+    }
     try {
-        await connect(DB_URI)
-        return "Connection established"
+        await connect(DB_URI);
+        console.log("Connected to MongoDB");
+        return "Connection established";
     } catch (error) {
-        throw new Error(" connection failed")
+        console.error("Error connecting to MongoDB:", error);
+        throw new Error("Connection failed");
     }
 }
 
-
-async function disconect(): Promise<string> {
+async function disconnectDb(): Promise<string> {
     try {
         await disconnect();
-        return "Connection closed"
+        console.log("Disconnected from MongoDB");
+        return "Connection closed";
     } catch (error) {
-        throw new Error(" connection failed")
+        console.error("Error disconnecting from MongoDB:", error);
+        throw new Error("Disconnection failed");
     }
 }
-
-export { dbConnect,disconect }
+export { dbConnect, disconnectDb };
